@@ -13,6 +13,7 @@ if (( $# == 0 )); then
 fi
 
 LAUNCH_PATTERN="$1"
+shift
 
 if (( FOCUS == 1 )); then
 	LAUNCH_ADDR=$(hyprctl clients -j | jq -r --arg p "$LAUNCH_PATTERN" '.[]|select((.class|test("\\b" + $p + "\\b";"i")) or (.title|test("\\b" + $p + "\\b";"i")))|.address' | head -n1)
@@ -24,4 +25,5 @@ if (( FOCUS == 1 )); then
 	fi
 fi
 
-eval exec setsid uwsm-app -- $LAUNCH_PATTERN
+LAUNCH_CMD="${*:-uwsm-app -- $LAUNCH_PATTERN}"
+eval exec setsid $LAUNCH_CMD

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+FOCUS=""
+if [[ "$1" == "-f" || "$1" == "--focus" ]]; then
+	FOCUS="-f"
+	shift
+fi
+
+if (( $# == 0 )); then
+	exit 1
+fi
+
+if [[ ${1:-} == --app-id=* ]]; then
+	APP_ID="${1#--app-id=}"
+	shift
+else
+	APP_ID="org.vj.$(basename $1)"
+fi
+
+APP_NAME="$1"
+shift
+
+exec vj-launch $FOCUS "$APP_ID" uwsm-app -- xdg-terminal-exec --app-id=$APP_ID -- "$APP_NAME" "$@"
