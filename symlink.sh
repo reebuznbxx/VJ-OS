@@ -9,6 +9,7 @@ STOW_DIR="$SCRIPT_DIR"
 # The directories to link
 HOME_DIRS=(
 	"${XDG_CONFIG_HOME:-$HOME/.config}"
+	"$HOME/.local/bin"
 )
 
 # Check if directory exists (mkdir if not) AND not a symlink (stow will error if a symlink exists)
