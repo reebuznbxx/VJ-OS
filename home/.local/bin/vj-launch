@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# TODO: Add documentation :<
+
+FOCUS=0
+if [[ "$1" == "-f" || "$1" == "--focus" ]]; then
+	FOCUS=1
+	shift
+fi
+
+if (( $# == 0 )); then
+	exit 1
+fi
+
+LAUNCH_PATTERN="$1"
+
+if (( FOCUS == 1 )); then
+	LAUNCH_ADDR=$(hyprctl clients -j | jq -r --arg p "$LAUNCH_PATTERN" '.[]|select((.class|test("\\b" + $p + "\\b";"i")) or (.title|test("\\b" + $p + "\\b";"i")))|.address' | head -n1)
+	if [[ -n $LAUNCH_ADDR ]]; then
+		hyprctl dispatch "hl.dsp.focus({ window = \"address:$LAUNCH_ADDR\" })" >/dev/null 2>&1
+		exit 0
+	else
+		exit 1
+	fi
+fi
+
+eval exec setsid uwsm-app -- $LAUNCH_PATTERN
