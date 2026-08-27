@@ -2,10 +2,6 @@
 
 set -e
 
-# Find the parent directory of the script
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[@]}" )" &>/dev/null && pwd )
-STOW_DIR="$SCRIPT_DIR"
-
 # The directories to link
 HOME_DIRS=(
 	"${XDG_CONFIG_HOME:-$HOME/.config}"
