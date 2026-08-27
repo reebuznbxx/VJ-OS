@@ -29,6 +29,28 @@ vamp.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 vamp.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
 vamp.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
 
+vamp.bind(mainMod .. " + TAB", function()
+	local layouts = { "dwindle", "scrolling" }
+	local ws = hl.get_active_special_workspace() or hl.get_active_workspace() -- First value is used if true!
+	if not ws then return end
+
+	local curr_layout = ws.tiled_layout
+	local next_layout = layouts[vamp.get_index(layouts, curr_layout) % #layouts + 1]
+	if not next_layout return end
+	
+	local ws_info = tostring(ws.name or ws.id)
+	hl.workspace_rule({
+		workspace = ws_info,
+		layout = next_layout
+	})
+
+	hl.notification.create({
+		text = "[LAYOUT] Switched workspace " .. ws_info .. " from " .. curr_layout .. " to " .. next_layout,
+		timeout = 3000,
+		icon = "OK"
+	})
+end)
+
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do

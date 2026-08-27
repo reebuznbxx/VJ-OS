@@ -30,4 +30,15 @@ function M.bind(keys, dispatcher, options)
 	hl.bind(keys, dispatcher, opts)
 end
 
+function M.get_index(list, target)
+	local idx = nil
+	for i, curr in ipairs(list) do
+		if curr == target then
+			idx = i
+			break
+		end
+	end
+	return idx
+end
+
 return M
