@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# TODO: Add documentation :<
-
 FOCUS=0
 if [[ "$1" == "-f" || "$1" == "--focus" ]]; then
 	FOCUS=1
