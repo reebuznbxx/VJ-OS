@@ -3,7 +3,7 @@
 ---------------------
 
 -- Set programs that you use
-local terminal    = "kitty"
+terminal    = "kitty"
 local fileManager = "dolphin"
 local menu        = "wofi --show drun"
 ---------------------
