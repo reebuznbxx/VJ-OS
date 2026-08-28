@@ -24,6 +24,9 @@ function M.bind(keys, dispatcher, options)
 			dispatcher = ""
 		end
 
+	end
+	
+	if type(dispatcher) == "string" then
 		dispatcher = hl.dsp.exec_cmd(dispatcher)
 	end
 
