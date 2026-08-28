@@ -84,3 +84,12 @@ vamp.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = 
 vamp.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 vamp.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 vamp.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
+
+vamp.bind(mainMod .. " + CTRL + Z", function()
+	local zoom = hl.get_config("cursor.zoom_factor") or 1
+	hl.config({ cursor = { zoom_factor = zoom + 1 } })
+end)
+
+vamp.bind(mainMod .. " + CTRL + ALT + Z", function()
+	hl.config({ cursor = { zoom_factor = 1 } })
+end)
