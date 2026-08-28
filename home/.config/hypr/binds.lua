@@ -36,7 +36,7 @@ vamp.bind(mainMod .. " + TAB", function()
 
 	local curr_layout = ws.tiled_layout
 	local next_layout = layouts[vamp.get_index(layouts, curr_layout) % #layouts + 1]
-	if not next_layout return end
+	if not next_layout then return end
 	
 	local ws_info = tostring(ws.name or ws.id)
 	hl.workspace_rule({
