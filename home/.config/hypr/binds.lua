@@ -1,7 +1,7 @@
 local vamp = require("helpers") -- An excuse to say your name!
 
 local fileManager = "dolphin"
-local menu        = "wofi --show drun"
+local menu        = "walker"
 
 local mainMod = "SUPER"
 
