@@ -1,0 +1,37 @@
+#!/bin/bash
+
+if [[ -z $1 ]]; then
+	exit 1
+fi
+
+WALLPAPER="$(realpath "$1")"
+CURR_WALLPAPER_SYMLINK="$XDG_STATE_HOME/vj/wallpaper"
+
+if [[ ! -f "$WALLPAPER" ]]; then
+	exit 1
+fi
+
+ln -nsf "$WALLPAPER" "$CURR_WALLPAPER_SYMLINK"
+
+WALLPAPER_NAME=$(basename "$WALLPAPER")
+WALLPAPER_EXT="${WALLPAPER_NAME##*.}"
+
+if [[ "$WALLPAPER_NAME" == "$WALLPAPER_EXT" ]]; then
+	exit 1
+fi
+
+WALLPAPER_EXT=$(echo "$WALLPAPER_EXT" | tr '[:upper:]' '[:lower:]')
+
+pkill -x mpvpaper
+
+case "$WALLPAPER_EXT" in
+	jpg|jpeg|png|webp)
+		hyprctl hyprpaper wallpaper " , $CURR_WALLPAPER_SYMLINK, "
+		;;
+	mp4|webm|mkv|gif)
+		vj-launch mpvpaper -o "no-audio loop panscan=1" '*' "$CURR_WALLPAPER_SYMLINK" &
+		;;
+	*)
+		exit 1
+		;;
+esac
