@@ -20,4 +20,4 @@ for dir in "${HOME_DIRS[@]}"; do
 done
 
 # Stow mirrors $HOME, so it'll stow the content of $HOME_DIRS instead of the directories themselves
-stow -v "$@" -d "$STOW_DIR" -t "$HOME" "home"
+stow -v "$@" -d "$STOW_DIR" -t "$HOME" "."

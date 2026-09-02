@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BIN_DIR="$STOW_DIR/home/.local/bin"
+BIN_DIR="$STOW_DIR/.local/bin"
 if [ -d "$BIN_DIR" ]; then
     echo "[CHMOD] Making bin executable!"
     find "$BIN_DIR" -type f -exec chmod +x {} +
