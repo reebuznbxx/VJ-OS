@@ -20,4 +20,4 @@ fi
 APP_NAME="$1"
 shift
 
-exec vj-launch $FOCUS "$APP_ID" uwsm-app -- xdg-terminal-exec --app-id=$APP_ID -- "$APP_NAME" "$@"
+exec vj-launch $FOCUS xdg-terminal-exec --app-id=$APP_ID -- "$APP_NAME" "$@"
