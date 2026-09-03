@@ -1,3 +1,7 @@
-if command -v starship &> /dev/null && [[ $- == *i* ]] && [[ ${TERM:-} != "dumb" ]]; then
+if command -v starship &>/dev/null && [[ $- == *i* ]] && [[ ${TERM:-} != "dumb" ]]; then
     eval "$(starship init bash)"
+fi
+
+if command -v fastfetch &>/dev/null && [[ $- == *i* ]] && [[ ${TERM:-} != "dumb" ]]; then
+	fastfetch
 fi
