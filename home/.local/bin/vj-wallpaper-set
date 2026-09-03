@@ -28,7 +28,7 @@ case "$WALLPAPER_EXT" in
 		hyprctl hyprpaper wallpaper " , $CURR_WALLPAPER_SYMLINK, "
 		;;
 	mp4|webm|mkv|gif)
-		vj-launch mpvpaper -o "no-audio loop panscan=1" '*' "$CURR_WALLPAPER_SYMLINK" &
+		vj-launch mpvpaper -o "no-audio loop panscan=1 hwdec=auto" '*' "$CURR_WALLPAPER_SYMLINK" &
 		;;
 	*)
 		exit 1
