@@ -14,4 +14,5 @@ local james = hl    -- :D
    james.exec_cmd("nm-applet")
    james.exec_cmd("waybar & hyprpaper")
    james.exec_cmd("hyprlock")
+   james.exec_cmd("vj-wallpaper-set")
  end)

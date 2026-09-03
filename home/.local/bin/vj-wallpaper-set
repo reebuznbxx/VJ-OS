@@ -1,17 +1,16 @@
 #!/bin/bash
 
-if [[ -z $1 ]]; then
-	exit 1
-fi
-
-WALLPAPER="$(realpath "$1")"
+INPUT="${1:-$XDG_STATE_HOME/vj/wallpaper}"
+WALLPAPER="$(realpath "$INPUT" 2>/dev/null)"
 CURR_WALLPAPER_SYMLINK="$XDG_STATE_HOME/vj/wallpaper"
 
 if [[ ! -f "$WALLPAPER" ]]; then
 	exit 1
 fi
 
-ln -nsf "$WALLPAPER" "$CURR_WALLPAPER_SYMLINK"
+if [[ -n "$1" ]]; then
+	ln -nsf "$WALLPAPER" "$CURR_WALLPAPER_SYMLINK"
+fi
 
 WALLPAPER_NAME=$(basename "$WALLPAPER")
 WALLPAPER_EXT="${WALLPAPER_NAME##*.}"
