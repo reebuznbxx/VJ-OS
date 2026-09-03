@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if ! pgrep -x elephant >/dev/null; then
+	vj-launch elephant &
+fi
+
+if ! pgrep -f "walker --gapplication-service" >/dev/null; then
+	vj-launch env GSK_RENDERER=cairo walker --gapplication-service &
+fi
+
+exec walker "$@"

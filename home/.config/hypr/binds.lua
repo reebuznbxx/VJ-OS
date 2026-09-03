@@ -11,7 +11,7 @@ local closeWindowBind = vamp.bind(mainMod .. " + ESCAPE", hl.dsp.window.close())
 vamp.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 vamp.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 vamp.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-vamp.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+vamp.bind(mainMod .. " + R", { vj = menu })
 vamp.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 vamp.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
