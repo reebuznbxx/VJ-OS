@@ -1,1 +1,1 @@
-source $XDG_CONFIG_HOME/bash/rc
+source $HOME/.config/bash/rc
