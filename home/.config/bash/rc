@@ -1,2 +1,3 @@
 source "$HOME/.config/bash/env" # VJ_CONFIG_HOME exist
 source "$VJ_CONFIG_HOME/bash/init"
+[[ $- == *i* ]] && bind -f "$VJ_CONFIG_HOME/bash/inputrc"
