@@ -17,5 +17,7 @@ vim.opt.splitright = true
 
 vim.opt.wrap = false
 
+vim.opt.updatetime = 200
+
 vim.opt.swapfile = false
 vim.opt.backup = false
