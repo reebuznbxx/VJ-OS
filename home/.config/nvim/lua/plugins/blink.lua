@@ -37,7 +37,6 @@ return {
             },
         },
         menu = {
-            auto_show = false,
         },
         documentation = {
             auto_show = true,
