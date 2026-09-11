@@ -6,5 +6,6 @@ mpvpaper
 nvim
 quickshell
 starship
+tree-sitter-cli
 walker
 uwsm

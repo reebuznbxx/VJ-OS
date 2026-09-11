@@ -1,2 +1,2 @@
-source "$HOME/.config/bash/env"
-source "$XDG_CONFIG_HOME/bash/init"
+source "$HOME/.config/bash/env" # VJ_CONFIG_HOME exist
+source "$VJ_CONFIG_HOME/bash/init"
