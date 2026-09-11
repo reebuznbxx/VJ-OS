@@ -1,1 +1,2 @@
-source "${XDG_CONFIG_HOME:-$HOME/.config}/bash/init"
+source "$HOME/.config/bash/env"
+source "$XDG_CONFIG_HOME/bash/init"
