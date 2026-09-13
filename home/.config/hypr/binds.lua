@@ -6,7 +6,7 @@ local menu        = "walker"
 local mainMod = "SUPER"
 
 vamp.bind(mainMod .. " + Q", { vj = "terminal" })
-local closeWindowBind = vamp.bind(mainMod .. " + ESCAPE", hl.dsp.window.close())
+local closeWindowBind = vamp.bind(mainMod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 vamp.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 vamp.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
